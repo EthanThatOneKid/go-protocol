@@ -90,7 +90,8 @@ Table of Contents
      4.6.  Query Parameter and Fragment Handling
      4.7.  Redirect Chains
    5.  IANA Considerations
-   6.  Normative References
+   6.  Implementation Status
+   7.  Normative References
    Appendix A.  Acknowledgments
    Author's Address
 
@@ -828,7 +829,27 @@ if value.length > 0 and value[0] == "/":
 
    This document has no IANA actions.
 
-6.  Normative References
+6.  Implementation Status
+
+   This section records the status of known implementations of the
+   protocol defined by this specification at the time of posting of this
+   Internet-Draft.
+
+   A reference implementation of this algorithm is available as the
+   @fartlabs/go package for the Deno runtime, published on the
+   JavaScript Registry (JSR).  The implementation demonstrates that the
+   protocol is implementable and provides a reference for developers
+   implementing the algorithm in other languages or runtimes.
+
+   The reference implementation can be found at:
+
+   *  JSR Package: https://jsr.io/@fartlabs/go
+      (https://jsr.io/@fartlabs/go)
+
+   *  Source Code: https://github.com/FartLabs/go
+      (https://github.com/FartLabs/go)
+
+7.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
