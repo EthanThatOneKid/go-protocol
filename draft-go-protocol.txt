@@ -2,7 +2,7 @@
 
 
 
-N/A                                                          E. Davidson
+Network Working Group                                        E. Davidson
 Internet-Draft                                                  FartLabs
 Intended status: Informational                           2 November 2025
 Expires: 6 May 2026
@@ -21,6 +21,13 @@ Abstract
    deterministic precedence rules for combining query parameters and
    fragments from multiple sources during resolution, enabling
    consistent behavior across clients, servers, and command-line tools.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/EthanThatOneKid/go-protocol.
 
 Status of This Memo
 
@@ -841,4 +848,4 @@ Author's Address
 
    Ethan Davidson
    FartLabs
-   Email: ethan@wazoo.tech
+   Email: ethan.r.davidson@gmail.com
