@@ -665,6 +665,22 @@ chain length more aggressively than the 256-iteration limit.
 
 This document has no IANA actions.
 
+# Implementation Status
+
+This section records the status of known implementations of the protocol defined
+by this specification at the time of posting of this Internet-Draft.
+
+A reference implementation of this algorithm is available as the `@fartlabs/go`
+package for the Deno runtime, published on the JavaScript Registry (JSR). The
+implementation demonstrates that the protocol is implementable and provides a
+reference for developers implementing the algorithm in other languages or
+runtimes.
+
+The reference implementation can be found at:
+
+- JSR Package: <https://jsr.io/@fartlabs/go>
+- Source Code: <https://github.com/FartLabs/go>
+
 --- back
 
 # Acknowledgments
