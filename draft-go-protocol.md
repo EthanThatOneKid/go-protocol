@@ -7,7 +7,7 @@ number:
 date:
 v: 3
 # area: N/A
-# workgroup: N/A
+# workgroup: FartLabs
 keyword:
   - shortlinks
   - URL resolution
@@ -16,7 +16,7 @@ keyword:
 author:
   - fullname: Ethan Davidson
     organization: FartLabs
-    email: ethan@wazoo.tech
+    email: ethan.r.davidson@gmail.com
 normative:
 informative:
 ---
