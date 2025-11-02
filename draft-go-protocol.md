@@ -6,8 +6,8 @@ submissiontype: independent # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
 v: 3
-area: N/A
-workgroup: N/A
+# area: N/A
+# workgroup: N/A
 keyword:
   - shortlinks
   - URL resolution
@@ -334,36 +334,36 @@ function resolve(RequestURL, Ruleset):
   requestQuery = RequestURL.search  // Includes "?" if present, else ""
   requestHash = RequestURL.hash     // Includes "#" if present, else ""
   pathname = RequestURL.pathname    // Always starts with "/"
-  
+
   relativePathname = ""
   initialQuery = ""
   initialHash = ""
   redirectCount = 0
   matchedKey = null  // Initialize to null/undefined
-  
+
   while redirectCount < 256:
     matchedKey = null  // Reset for each iteration
-    
+
     // Step 1: Extract embedded hash from pathname (first)
     hashIdx = pathname.lastIndexOf("#")
     if hashIdx >= 0:
       if initialHash == "":
         initialHash = pathname.slice(hashIdx)  // From "#" onward, inclusive
       pathname = pathname.slice(0, hashIdx)    // Before "#", exclusive
-    
+
     // Step 2: Extract embedded query from pathname (after hash)
     queryIdx = pathname.lastIndexOf("?")
     if queryIdx >= 0:
       if initialQuery == "":
         initialQuery = pathname.slice(queryIdx)  // From "?" onward, inclusive
       pathname = pathname.slice(0, queryIdx)     // Before "?", exclusive
-    
+
     // Step 3: Longest-prefix match
     if pathname == "/":
       candidate = ""
     else:
       candidate = pathname.slice(1)  // Remove leading "/"
-    
+
     // Try exact match first
     if candidate != "" and Ruleset.hasOwnProperty(candidate):
       matchedKey = candidate
@@ -377,7 +377,7 @@ function resolve(RequestURL, Ruleset):
         if Ruleset.hasOwnProperty(candidate):
           matchedKey = candidate
           break
-    
+
     // Step 4: Process match result
     if matchedKey == null:
       // No match found
@@ -385,32 +385,32 @@ function resolve(RequestURL, Ruleset):
       query = combineQueries("", initialQuery, requestQuery)
       hash = selectFragment(requestHash, initialHash, "")
       return destination.origin + destination.pathname + query + hash
-    
+
     // Match found, process it
     value = Ruleset[matchedKey]
-    
+
     // Calculate remaining path
     if pathname.length > matchedKey.length + 1:
       remainingPath = pathname.slice(matchedKey.length + 1)
     else:
       remainingPath = ""
     relativePathname = remainingPath + relativePathname
-    
+
     // Check value type
     if value.slice(0, 4) == "http":
       // Absolute destination
       destination = new URL(value)
       query = combineQueries(destination.search, initialQuery, requestQuery)
       hash = selectFragment(requestHash, initialHash, destination.hash)
-      return destination.origin + destination.pathname + 
+      return destination.origin + destination.pathname +
              relativePathname + query + hash
-    
+
     if value.length > 0 and value[0] == "/":
       // Internal redirect
       pathname = value
       redirectCount++
       continue  // Next iteration
-  
+
   // Loop limit exceeded
   throw Error("too many internal redirects")
 
@@ -418,21 +418,21 @@ function combineQueries(baseQuery, pathnameQuery, requestQuery):
   // baseQuery is lowest precedence (destination query)
   // pathnameQuery is medium precedence
   // requestQuery is highest precedence
-  
+
   params = new URLSearchParams(baseQuery)
-  
+
   // Add pathname-embedded query (overwrites base)
   if pathnameQuery != "":
     pathParams = new URLSearchParams(pathnameQuery)
     for each key-value pair (key, value) in pathParams:
       params.set(key, value)
-  
+
   // Add request query (overwrites base and pathname)
   if requestQuery != "":
     requestParams = new URLSearchParams(requestQuery)
     for each key-value pair (key, value) in requestParams:
       params.set(key, value)
-  
+
   result = params.toString()
   return result.length > 0 ? "?" + result : ""
 
