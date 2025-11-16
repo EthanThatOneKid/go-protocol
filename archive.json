@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-13T01:38:49.638189+00:00",
+  "timestamp": "2025-11-16T01:43:18.244636+00:00",
   "repo": "EthanThatOneKid/go-protocol",
   "labels": [
     {
@@ -49,6 +49,23 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOQNmfF87YQ0JI",
+      "title": "Run idnits command",
+      "url": "https://github.com/EthanThatOneKid/go-protocol/issues/1",
+      "state": "OPEN",
+      "author": "EthanThatOneKid",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Resolve reported nits.\n\nReference: https://author-tools.ietf.org/api/idnits?url=https://www.ietf.org/archive/id/draft-go-protocol-00.txt\n\n```\nidnits 2.17.1 \n\ndraft-go-protocol-00.txt:\n\n  Checking boilerplate required by RFC 5378 and the IETF Trust (see\n  https://trustee.ietf.org/license-info):\n  ----------------------------------------------------------------------------\n\n     No issues found here.\n\n  Checking nits according to https://www.ietf.org/id-info/1id-guidelines.txt:\n  ----------------------------------------------------------------------------\n\n  == There are 5 instances of lines with non-ascii characters in the document.\n\n\n  Checking nits according to https://www.ietf.org/id-info/checklist :\n  ----------------------------------------------------------------------------\n\n  ** There is 1 instance of too long lines in the document, the longest one\n     being 2 characters in excess of 72.\n\n\n  Miscellaneous warnings:\n  ----------------------------------------------------------------------------\n\n  -- The document date (2 November 2025) is 13 days in the past.  Is this\n     intentional?\n\n\n  Checking references for intended status: Informational\n  ----------------------------------------------------------------------------\n\n  -- Looks like a reference, but probably isn't: '0' on line 530\n\n\n     Summary: 1 error (**), 0 flaws (~~), 1 warning (==), 2 comments (--).\n\n     Run idnits with the --verbose option for more detailed information about\n     the items above.\n```",
+      "createdAt": "2025-11-15T07:45:51Z",
+      "updatedAt": "2025-11-15T07:46:18Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
